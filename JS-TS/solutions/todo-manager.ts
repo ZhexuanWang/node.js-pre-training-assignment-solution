@@ -6,18 +6,20 @@ export class ToDoManager {
   private service = new TodoService(new TodoApi());
 
   async init(): Promise<void> {
-    throw new Error('init: not implemented');
+    await this.service.create('Learn TypeScript', 'Complete the pre-training course');
+    await this.service.create('Write unit tests', 'Achieve 90% coverage');
+    await this.service.create('Build a CLI app');
   }
 
   async add(title: string, description = ''): Promise<void> {
-    throw new Error('add: not implemented');
+    await this.service.create(title, description);
   }
 
   async complete(id: number): Promise<void> {
-    throw new Error('complete: not implemented');
+    await this.service.toggleStatus(id);
   }
 
   async list(): Promise<Todo[]> {
-    throw new Error('list: not implemented');
+    return this.service.getAll();
   }
 }
