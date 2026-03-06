@@ -63,11 +63,76 @@ export const FilteredToDoList: React.FC = () => {
   //   return true; // 'all' case
   // });
 
-  return (
-    <div>
-      {/* TODO: Replace this with your implementation */}
-      <h4>Filtered ToDo List Component</h4>
-      <p>Implement derived state and filtering here</p>
-    </div>
-  );
+    const [todos, setTodos] = useState<Todo[]>([]);
+    const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all');
+    const [newTodo, setNewTodo] = useState('');
+
+    const filteredTodos = todos.filter(todo => {
+        if (filter === 'active') return !todo.completed;
+        if (filter === 'completed') return todo.completed;
+        return true;
+    });
+
+    const addTodo = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!newTodo.trim()) return;
+        setTodos([...todos, { id: Date.now(), title: newTodo, completed: false }]);
+        setNewTodo('');
+    };
+
+    const toggleTodo = (id: number) => {
+        setTodos(todos.map(todo =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        ));
+    };
+
+    return (
+        <div>
+            <h4>Filtered Todo List</h4>
+
+            <form onSubmit={addTodo}>
+                <input
+                    value={newTodo}
+                    onChange={(e) => setNewTodo(e.target.value)}
+                    placeholder="Add todo"
+                />
+                <button type="submit">Add</button>
+            </form>
+
+            <div style={{ margin: '10px 0' }}>
+                {(['all', 'active', 'completed'] as const).map(f => (
+                    <button
+                        key={f}
+                        onClick={() => setFilter(f)}
+                        style={{
+                            marginRight: '5px',
+                            padding: '5px 10px',
+                            backgroundColor: filter === f ? '#007bff' : '#e9ecef',
+                            color: filter === f ? 'white' : 'black',
+                        }}
+                    >
+                        {f}
+                    </button>
+                ))}
+            </div>
+
+            <ul>
+                {filteredTodos.map(todo => (
+                    <li key={todo.id}>
+                        <input
+                            type="checkbox"
+                            checked={todo.completed}
+                            onChange={() => toggleTodo(todo.id)}
+                        />
+                        <span style={{
+                            textDecoration: todo.completed ? 'line-through' : 'none',
+                            marginLeft: '5px',
+                        }}>
+              {todo.title}
+            </span>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 }; 

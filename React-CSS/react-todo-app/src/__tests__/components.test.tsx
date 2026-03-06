@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { act } from 'react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import { ToDoList } from '../solutions/task-01/ToDoList';
 import { ToDoItem } from '../solutions/task-02/ToDoItem';
 import { AddToDo } from '../solutions/task-03/AddToDo';

@@ -60,11 +60,12 @@ export const ActiveCount: React.FC<ActiveCountProps> = ({ todos }) => {
   // Example display:
   // "0 active todos" or "1 active todo" or "5 active todos"
 
-  return (
-    <div>
-      {/* TODO: Replace this with your implementation */}
-      <h4>Active Count Component</h4>
-      <p>Calculate and display active todos count here</p>
-    </div>
-  );
+    const activeCount = todos.filter(todo => !todo.completed).length;
+    const todoWord = activeCount === 1 ? 'todo' : 'todos';
+
+    return (
+        <div>
+            <p>{activeCount} active {todoWord}</p>
+        </div>
+    );
 }; 

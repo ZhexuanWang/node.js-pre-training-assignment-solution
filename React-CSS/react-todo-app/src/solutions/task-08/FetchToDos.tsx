@@ -89,11 +89,81 @@ export const FetchToDos: React.FC = () => {
   //     });
   // }, []);
 
-  return (
-    <div>
-      {/* TODO: Replace this with your implementation */}
-      <h4>Fetch ToDos Component</h4>
-      <p>Implement data fetching with useEffect here</p>
-    </div>
-  );
+    const [todos, setTodos] = useState<Todo[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const controller = new AbortController();
+
+        const fetchTodos = async () => {
+            try {
+                setLoading(true);
+                setError(null);
+
+                const response = await fetch(
+                    'https://jsonplaceholder.typicode.com/todos',
+                    { signal: controller.signal }
+                );
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error — status: ${response.status}`);
+                }
+
+                const data: Todo[] = await response.json();
+                setTodos(data.slice(0, 5));
+            } catch (err) {
+                if ((err as Error).name === 'AbortError') return;
+                setError((err as Error).message ?? 'An unexpected error occurred.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchTodos();
+
+        return () => controller.abort();
+    }, []);
+
+    if (loading) {
+        return (
+            <div style={{ padding: '16px', textAlign: 'center' }}>
+                <p>⏳ Loading todos...</p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div style={{ padding: '16px', color: '#c53030' }}>
+                <p>❌ Error: {error}</p>
+                <button onClick={() => window.location.reload()}>Retry</button>
+            </div>
+        );
+    }
+
+    return (
+        <div style={{ padding: '16px' }}>
+            <h4>Fetched Todos</h4>
+            <ul style={{ listStyle: 'none', padding: 0 }}>
+                {todos.map(todo => (
+                    <li
+                        key={todo.id}
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                            padding: '8px 0',
+                            borderBottom: '1px solid #e2e8f0',
+                            textDecoration: todo.completed ? 'line-through' : 'none',
+                            color: todo.completed ? '#a0aec0' : '#2d3748',
+                        }}
+                    >
+                        <span>{todo.completed ? '✅' : '⭕'}</span>
+                        <span>{todo.title}</span>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 }; 

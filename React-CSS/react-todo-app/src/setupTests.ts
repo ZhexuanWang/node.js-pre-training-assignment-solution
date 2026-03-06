@@ -4,24 +4,20 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
+global.fetch = jest.fn(() =>
+    Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve([]),
+    })
+) as jest.Mock;
+
 // Suppress React Router warnings in tests
 const originalError = console.error;
 beforeAll(() => {
-  console.error = (...args: any[]) => {
-    if (
-      typeof args[0] === 'string' &&
-      args[0].includes('Warning: `ReactDOMTestUtils.act` is deprecated')
-    ) {
-      return;
-    }
-    if (
-      typeof args[0] === 'string' &&
-      args[0].includes('React Router Future Flag Warning')
-    ) {
-      return;
-    }
-    originalError.call(console, ...args);
-  };
+    console.error = (...args: string[]) => {
+        if (args[0]?.includes('not wrapped in act')) return;
+        originalError.call(console, ...args);
+    };
 });
 
 afterAll(() => {
