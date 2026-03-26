@@ -1,0 +1,30 @@
+## Key Docker Commands Used
+
+Image Management:
+docker pull nginx:alpine          # Download image
+docker tag nginx:alpine my-nginx  # Create custom tag
+docker save/load                  # Backup/restore images
+
+Container Management:
+docker run -d -p 8080:80 nginx    # Detached + port mapping
+docker exec -it container sh      # Shell access
+docker cp host.txt container:/    # File transfer
+
+Monitoring:
+docker stats                      # CPU/memory usage
+docker logs -f --timestamps       # Live logs
+docker inspect container          # Full config
+
+Cleanup:
+docker system prune -a --volumes  # Remove everything unused
+
+## docker system df Before:
+Images: 5, Containers: 3, Volumes: 1, Build Cache: 0B
+
+## docker system df After:
+Images: 0, Containers: 0, Volumes: 0, Build Cache: 0B
+
+## Most Useful Commands:
+1. docker exec -it  (shell into containers)
+2. docker logs -f   (live logs)
+3. docker system prune -a  (cleanup)

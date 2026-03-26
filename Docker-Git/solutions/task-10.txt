@@ -1,0 +1,19 @@
+Networks:
+docker network create app-network
+docker network inspect app-network
+
+Volumes:
+docker volume create mongo-data
+docker volume ls
+
+Communication test:
+docker exec mongo-express ping mongodb  # Works by service name
+
+Volume types:
+- Named: docker volume create app-data (persistent)
+- Bind: -v $(pwd):/host (host↔container sync)
+- tmpfs: --tmpfs /tmp (RAM only)
+
+docker network ls output:
+NETWORK ID     NAME          DRIVER    SCOPE
+abc123def      app-network   bridge    local

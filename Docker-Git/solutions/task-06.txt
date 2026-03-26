@@ -1,0 +1,54 @@
+After rebase:
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git log --graph --oneline
+* d9ad4bd (HEAD -> feature/user-authentication) Add tests for authentication
+* c63e169 Add authentication middleware
+* dd27950 Add authentication dependencies to package.json
+* 8fd428a Add auth.js with basic authentication logic
+* c2033ea (master) Add global config (simulated team commit)
+*   804ef93 Merge feature/update-readme-v2: combine v1 and v2 titles
+|\
+| * f59bd2c (feature/update-readme-v2) Update README title to v2
+* | 7a003cb (feature/update-readme-v1) Update README title to v1
+|/
+* fea4d34 Add npm scripts for start, test, and dev
+* 8ffb5e3 Add initial README and package.json
+* 24f675b Add .gitignore with common ignore patterns
+
+before rebase:
+a18be97 (HEAD -> feature/user-authentication) Add tests for authentication
+f1fc496 Add authentication middleware
+99079ba fix typo
+0c1a7e7 Add authentication dependencies to package.json
+9ae4259 Add auth.js with basic authentication logic
+804ef93 (master) Merge feature/update-readme-v2: combine v1 and v2 titles
+f59bd2c (feature/update-readme-v2) Update README title to v2
+7a003cb (feature/update-readme-v1) Update README title to v1
+fea4d34 Add npm scripts for start, test, and dev
+8ffb5e3 Add initial README and package.json
+24f675b Add .gitignore with common ignore patterns
+
+commands:
+git checkout master
+git checkout -b feature/user-authentication
+echo "// auth module" > auth.js
+git add auth.js
+git commit -m "Add auth.js with basic authentication logic"
+git add package.json
+git commit -m "Add authentication dependencies to package.json"
+echo "// fix typo in auth" >> auth.js
+git add auth.js
+git commit -m "fix typo"
+echo "// middleware" > middleware.js
+git add middleware.js
+git commit -m "Add authentication middleware"
+echo "// tests" > auth.test.js
+git add auth.test.js
+git commit -m "Add tests for authentication"
+git log --oneline
+git config --global core.editor "notepad"
+git rebase -i HEAD~5
+echo "// global config" > config.js
+git add config.js
+git commit -m "Add global config (simulated team commit)"
+git checkout feature/user-authentication
+git rebase master

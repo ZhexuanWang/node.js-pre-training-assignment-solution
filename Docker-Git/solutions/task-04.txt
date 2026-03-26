@@ -1,0 +1,52 @@
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git checkout master
+Already on 'master'
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git checkout -b feature/update-readme-v1
+Switched to a new branch 'feature/update-readme-v1'
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git add README.md
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git commit -m "Update README title to v1"
+[feature/update-readme-v1 7a003cb] Update README title to v1
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git checkout master
+Switched to branch 'master'
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git checkout -b feature/update-readme-v2
+Switched to a new branch 'feature/update-readme-v2'
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git add README.md
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git commit -m "Update README title to v2"
+[feature/update-readme-v2 f59bd2c] Update README title to v2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git checkout master
+Switched to branch 'master'
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git merge feature/update-readme-v1
+Updating fea4d34..7a003cb
+Fast-forward
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git merge feature/update-readme-v2
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git add README.md
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git commit -m "Merge feature/update-readme-v2: combine v1 and v2 titles"
+[master 804ef93] Merge feature/update-readme-v2: combine v1 and v2 titles
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo>git log --graph --oneline
+*   804ef93 (HEAD -> master) Merge feature/update-readme-v2: combine v1 and v2 titles
+|\
+| * f59bd2c (feature/update-readme-v2) Update README title to v2
+* | 7a003cb (feature/update-readme-v1) Update README title to v1
+|/
+* fea4d34 Add npm scripts for start, test, and dev
+* 8ffb5e3 Add initial README and package.json
+* 24f675b Add .gitignore with common ignore patterns

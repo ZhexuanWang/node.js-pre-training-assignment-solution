@@ -1,0 +1,22 @@
+| Command                | Purpose                              |
+| ---------------------- | ------------------------------------ |
+| git checkout -b branch | Creates and switches to new branch   |
+| git checkout main      | Switches to main branch              |
+| git merge branch       | Merges specified branch into current |
+| git branch -d branch   | Deletes local branch after merge     |
+| git branch -a          | Lists all branches (local + remote)  |
+| git log --graph        | Visual commit history with branches  |
+
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git merge feature/add-scripts
+Updating 8ffb5e3..fea4d34
+Fast-forward
+ package.json | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git branch -d feature/add-scripts
+Deleted branch feature/add-scripts (was fea4d34).
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git log --graph --oneline
+* fea4d34 (HEAD -> master) Add npm scripts for start, test, and dev
+* 8ffb5e3 Add initial README and package.json
+* 24f675b Add .gitignore with common ignore patterns
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git branch -a
+* master

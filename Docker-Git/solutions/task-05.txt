@@ -1,0 +1,78 @@
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-ts-app>docker build -f Dockerfile.single -t my-ts-app:single .
+[+] Building 18.6s (13/13) FINISHED                                                                                                         docker:desktop-linux
+ => [internal] load build definition from Dockerfile.single                                                                                                 0.1s
+ => => transferring dockerfile: 305B                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:24                                                                                                  1.5s
+ => [auth] library/node:pull token for registry-1.docker.io                                                                                                 0.0s
+ => [internal] load .dockerignore                                                                                                                           0.0s
+ => => transferring context: 142B                                                                                                                           0.0s
+ => [internal] load build context                                                                                                                           0.0s
+ => => transferring context: 453B                                                                                                                           0.0s
+ => [1/7] FROM docker.io/library/node:24@sha256:5a593d74b632d1c6f816457477b6819760e13624455d587eef0fa418c8d0777b                                            0.1s
+ => => resolve docker.io/library/node:24@sha256:5a593d74b632d1c6f816457477b6819760e13624455d587eef0fa418c8d0777b                                            0.1s
+ => CACHED [2/7] WORKDIR /app                                                                                                                               0.0s
+ => [3/7] COPY package*.json ./                                                                                                                             0.1s
+ => [4/7] RUN npm install                                                                                                                                   8.3s
+ => [5/7] COPY tsconfig.json ./                                                                                                                             0.2s
+ => [6/7] COPY src/ ./src/                                                                                                                                  0.1s
+ => [7/7] RUN ./node_modules/.bin/tsc --project tsconfig.json                                                                                               2.7s
+ => exporting to image                                                                                                                                      5.0s
+ => => exporting layers                                                                                                                                     2.7s
+ => => exporting manifest sha256:ce48fd8c2388b7ad31e078757b1436081cc4aa00be0162ded3b6e976540bd950                                                           0.0s
+ => => exporting config sha256:cf931abd3409f23f962339142226742eb0b97dd663ef77c178ceea7c1ea672f3                                                             0.0s
+ => => exporting attestation manifest sha256:2f7acc178e7fe62fee9b42749afec30876a5997911bb60e93cf2f281a43f757f                                               0.0s
+ => => exporting manifest list sha256:31a5cdc14522cbf8ded05698a30932d8dc5e73483ba52a8aa933dbb82dc41cf6                                                      0.0s
+ => => naming to docker.io/library/my-ts-app:single                                                                                                         0.0s
+ => => unpacking to docker.io/library/my-ts-app:single                                                                                                      2.0s
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-ts-app>docker build -t my-ts-app:multi .
+[+] Building 10.3s (18/18) FINISHED                                                                                                         docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                        0.0s
+ => => transferring dockerfile: 705B                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:24-alpine                                                                                           1.7s
+ => [internal] load metadata for docker.io/library/node:24                                                                                                  1.7s
+ => [internal] load .dockerignore                                                                                                                           0.0s
+ => => transferring context: 142B                                                                                                                           0.0s
+ => [builder 1/7] FROM docker.io/library/node:24@sha256:5a593d74b632d1c6f816457477b6819760e13624455d587eef0fa418c8d0777b                                    0.1s
+ => => resolve docker.io/library/node:24@sha256:5a593d74b632d1c6f816457477b6819760e13624455d587eef0fa418c8d0777b                                            0.1s
+ => [production 1/5] FROM docker.io/library/node:24-alpine@sha256:7fddd9ddeae8196abf4a3ef2de34e11f7b1a722119f91f28ddf1e99dcafdf114                          0.1s
+ => => resolve docker.io/library/node:24-alpine@sha256:7fddd9ddeae8196abf4a3ef2de34e11f7b1a722119f91f28ddf1e99dcafdf114                                     0.1s
+ => [internal] load build context                                                                                                                           0.0s
+ => => transferring context: 160B                                                                                                                           0.0s
+ => CACHED [builder 2/7] WORKDIR /app                                                                                                                       0.0s
+ => CACHED [builder 3/7] COPY package*.json ./                                                                                                              0.0s
+ => CACHED [builder 4/7] RUN npm install                                                                                                                    0.0s
+ => CACHED [builder 5/7] COPY tsconfig.json ./                                                                                                              0.0s
+ => CACHED [builder 6/7] COPY src/ ./src/                                                                                                                   0.0s
+ => CACHED [builder 7/7] RUN ./node_modules/.bin/tsc --project tsconfig.json                                                                                0.0s
+ => CACHED [production 2/5] WORKDIR /app                                                                                                                    0.0s
+ => [production 3/5] COPY package*.json ./                                                                                                                  0.1s
+ => [production 4/5] RUN npm install --omit=dev                                                                                                             5.4s
+ => [production 5/5] COPY --from=builder /app/dist ./dist                                                                                                   0.1s
+ => exporting to image                                                                                                                                      2.3s
+ => => exporting layers                                                                                                                                     0.8s
+ => => exporting manifest sha256:369a9ee70a4dea58033237cda016745f80c42ebbbbe7c4cad8cec6a4d284b18c                                                           0.0s
+ => => exporting config sha256:58d3d5c1b54d1780595d73ab192adb84936de68baef33ab9b034c5afdce603ec                                                             0.0s
+ => => exporting attestation manifest sha256:4d0d499c2a44052b10ba313ebb4839838e9faa400938f501c761fc7992241d5c                                               0.0s
+ => => exporting manifest list sha256:ef17e97d28c1f66072fa9c583959ab236f10c2d473b4c161d277858881a6700f                                                      0.0s
+ => => naming to docker.io/library/my-ts-app:multi                                                                                                          0.0s
+ => => unpacking to docker.io/library/my-ts-app:multi                                                                                                       1.2s
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-ts-app>docker images my-ts-app
+                                                                                                                                            i Info →   U  In Use
+IMAGE              ID             DISK USAGE   CONTENT SIZE   EXTRA
+my-ts-app:multi    ef17e97d28c1        236MB         58.3MB
+my-ts-app:single   31a5cdc14522       1.67GB          420MB
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-ts-app>docker run -d --name ts-app -p 3000:3000 my-ts-app:multi
+2a54b36d4f124ef93e47b29cff337f9c061e451f6246199e20e7456a1772757b
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-ts-app>curl http://localhost:3000
+{"message":"Hello from TypeScript + Docker!","environment":"development","timestamp":"2026-03-24T08:18:19.210Z"}
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-ts-app>curl http://localhost:3000/health
+{"status":"OK"}
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-ts-app>docker logs ts-app
+Server running at http://localhost:3000
+
+
+

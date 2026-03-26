@@ -1,0 +1,12 @@
+| Command                        | Purpose                          |
+| ------------------------------ | -------------------------------- |
+| git init                       | Creates new Git repository       |
+| git config user.name/email     | Sets author identity for commits |
+| git add .gitignore             | Stages .gitignore file only      |
+| git commit -m "msg"            | Creates commit with message      |
+| git add README.md package.json | Stages specific files            |
+| git log --oneline              | Shows compact commit history     |
+
+my-first-repo> git log --oneline
+8ffb5e3 (HEAD -> master) Add initial README and package.json
+24f675b Add .gitignore with common ignore patterns

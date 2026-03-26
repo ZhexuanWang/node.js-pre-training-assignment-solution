@@ -1,0 +1,291 @@
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-node-app>docker images
+                                                                                                                                            i Info →   U  In Use
+IMAGE            ID             DISK USAGE   CONTENT SIZE   EXTRA
+my-node-app:v1   8be63bff1eff        228MB         56.8MB    U
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-node-app>docker build -t my-node-app:v1 .
+[+] Building 1.4s (10/10) FINISHED                                                                                                          docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                        0.1s
+ => => transferring dockerfile: 465B                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:24-alpine                                                                                           0.8s
+ => [internal] load .dockerignore                                                                                                                           0.0s
+ => => transferring context: 2B                                                                                                                             0.0s
+ => [1/5] FROM docker.io/library/node:24-alpine@sha256:7fddd9ddeae8196abf4a3ef2de34e11f7b1a722119f91f28ddf1e99dcafdf114                                     0.1s
+ => => resolve docker.io/library/node:24-alpine@sha256:7fddd9ddeae8196abf4a3ef2de34e11f7b1a722119f91f28ddf1e99dcafdf114                                     0.0s
+ => [internal] load build context                                                                                                                           0.0s
+ => => transferring context: 90B                                                                                                                            0.0s
+ => CACHED [2/5] WORKDIR /app                                                                                                                               0.0s
+ => CACHED [3/5] COPY package*.json ./                                                                                                                      0.0s
+ => CACHED [4/5] RUN npm install                                                                                                                            0.0s
+ => CACHED [5/5] COPY . .                                                                                                                                   0.0s
+ => exporting to image                                                                                                                                      0.2s
+ => => exporting layers                                                                                                                                     0.0s
+ => => exporting manifest sha256:7108578ffd52ff983dc0cda33aaec29799b178832d643c8650bf6c1e6af36ec6                                                           0.0s
+ => => exporting config sha256:4bf3e5e01b183428d1a8147683ba2d886e1606a8f2cfc84d62f58405167f6b5c                                                             0.0s
+ => => exporting attestation manifest sha256:a93098e15e08b48f1eda01e858eefcf40d6d3820ad4211afad5e65eb31f20a7c                                               0.0s
+ => => exporting manifest list sha256:bff746829e0744f6470606f8d11e3029b5b29e6887582cf7abd85b447650f3ef                                                      0.0s
+ => => naming to docker.io/library/my-node-app:v1                                                                                                           0.0s
+ => => unpacking to docker.io/library/my-node-app:v1                                                                                                        0.0s
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-node-app>docker run -d --name my-node-app -p 3000:3000 my-node-app:v1
+bf050ea8e4679fed06b450002a0e3362bb74fb4defc31adbb532fc1a241dead4
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-node-app>docker inspect my-node-app
+[
+    {
+        "Id": "bf050ea8e4679fed06b450002a0e3362bb74fb4defc31adbb532fc1a241dead4",
+        "Created": "2026-03-23T14:02:38.815013114Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "node",
+            "app.js"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 758,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-03-23T14:02:39.036102025Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:bff746829e0744f6470606f8d11e3029b5b29e6887582cf7abd85b447650f3ef",
+        "ResolvConfPath": "/var/lib/docker/containers/bf050ea8e4679fed06b450002a0e3362bb74fb4defc31adbb532fc1a241dead4/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/bf050ea8e4679fed06b450002a0e3362bb74fb4defc31adbb532fc1a241dead4/hostname",
+        "HostsPath": "/var/lib/docker/containers/bf050ea8e4679fed06b450002a0e3362bb74fb4defc31adbb532fc1a241dead4/hosts",
+        "LogPath": "/var/lib/docker/containers/bf050ea8e4679fed06b450002a0e3362bb74fb4defc31adbb532fc1a241dead4/bf050ea8e4679fed06b450002a0e3362bb74fb4defc31adbb532fc1a241dead4-json.log",
+        "Name": "/my-node-app",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "bridge",
+            "PortBindings": {
+                "3000/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "3000"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                8,
+                161
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "bf050ea8e467",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "3000/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=24.14.0",
+                "YARN_VERSION=1.22.22"
+            ],
+            "Cmd": [
+                "node",
+                "app.js"
+            ],
+            "Image": "my-node-app:v1",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Labels": {},
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "0ce789b01fd342768456de52b207692576019d0e20db67a3d39cc7d9ed83b6c6",
+            "SandboxKey": "/var/run/docker/netns/0ce789b01fd3",
+            "Ports": {
+                "3000/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "3000"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "3000"
+                    }
+                ]
+            },
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "917b9b6af3fef2cfdcc4a26ff9566477e3620220151cf77f981c7aa5a86d87ab",
+                    "EndpointID": "ac85633af6d1bc3bbc894463cb654a13a3f2e46f89148f19918db353d8396629",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "MacAddress": "62:e7:44:1d:90:92",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:7108578ffd52ff983dc0cda33aaec29799b178832d643c8650bf6c1e6af36ec6",
+            "size": 1808,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-node-app>curl http://localhost:3000
+Hello Docker!
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-node-app>docker logs my-node-app
+Server running at http://localhost:3000
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-node-app>docker stop my-node-app
+my-node-app
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-node-app>docker rm my-node-app
+my-node-app
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-node-app>docker build -t my-node-app:v1 .
+[+] Building 2.3s (11/11) FINISHED                                                                                                          docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                        0.1s
+ => => transferring dockerfile: 465B                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:24-alpine                                                                                           1.5s
+ => [auth] library/node:pull token for registry-1.docker.io                                                                                                 0.0s
+ => [internal] load .dockerignore                                                                                                                           0.0s
+ => => transferring context: 2B                                                                                                                             0.0s
+ => [1/5] FROM docker.io/library/node:24-alpine@sha256:7fddd9ddeae8196abf4a3ef2de34e11f7b1a722119f91f28ddf1e99dcafdf114                                     0.1s
+ => => resolve docker.io/library/node:24-alpine@sha256:7fddd9ddeae8196abf4a3ef2de34e11f7b1a722119f91f28ddf1e99dcafdf114                                     0.1s
+ => [internal] load build context                                                                                                                           0.0s
+ => => transferring context: 90B                                                                                                                            0.0s
+ => CACHED [2/5] WORKDIR /app                                                                                                                               0.0s
+ => CACHED [3/5] COPY package*.json ./                                                                                                                      0.0s
+ => CACHED [4/5] RUN npm install                                                                                                                            0.0s
+ => CACHED [5/5] COPY . .                                                                                                                                   0.0s
+ => exporting to image                                                                                                                                      0.3s
+ => => exporting layers                                                                                                                                     0.0s
+ => => exporting manifest sha256:7108578ffd52ff983dc0cda33aaec29799b178832d643c8650bf6c1e6af36ec6                                                           0.0s
+ => => exporting config sha256:4bf3e5e01b183428d1a8147683ba2d886e1606a8f2cfc84d62f58405167f6b5c                                                             0.0s
+ => => exporting attestation manifest sha256:7f1e08c2996cddcec5cca2f05a8fbb434761f242f94a8919569c41f7fb06c68e                                               0.1s
+ => => exporting manifest list sha256:8be63bff1effa18a5cb468a035e9777bae7347e2fe7561cbf92d076b64f7c1f2                                                      0.0s
+ => => naming to docker.io/library/my-node-app:v1                                                                                                           0.0s
+ => => unpacking to docker.io/library/my-node-app:v1                                                                                                        0.0s
+

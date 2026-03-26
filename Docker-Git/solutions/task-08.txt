@@ -1,0 +1,93 @@
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git> cd my-first-repo
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git remote add origin https://github.com/ZhexuanWang/task-08-fork
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git remote add upstream https://github.com/ZhexuanWang/task-08-main
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git remote -v
+origin  https://github.com/ZhexuanWang/task-08-fork (fetch)
+origin  https://github.com/ZhexuanWang/task-08-fork (push)
+upstream        https://github.com/ZhexuanWang/task-08-main (fetch)
+upstream        https://github.com/ZhexuanWang/task-08-main (push)
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git checkout -b feature/my-new-thing upstream/main
+fatal: 'upstream/main' is not a commit and a branch 'feature/my-new-thing' cannot be created from it
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git fetch upstream
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git branch -m master main
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> echo "# Task 08 Main Repo" > README.md
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git add README.md
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git commit -m "Initial commit: create main repo"
+[main e348d02] Initial commit: create main repo
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git push upstream main
+Enumerating objects: 26, done.
+Counting objects: 100% (26/26), done.
+Delta compression using up to 8 threadsPS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git remote -v
+origin  https://github.com/ZhexuanWang/task-08-fork (fetch)
+origin  https://github.com/ZhexuanWang/task-08-fork (push)
+upstream        https://github.com/ZhexuanWang/task-08-main (fetch)
+upstream        https://github.com/ZhexuanWang/task-08-main (push)
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git branch -D feature/my-new-thing
+Deleted branch feature/my-new-thing (was c2033ea).
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git fetch upstream
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git checkout -b feature/my-new-thing upstream/main
+branch 'feature/my-new-thing' set up to track 'upstream/main'.
+Switched to a new branch 'feature/my-new-thing'
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git status
+On branch feature/my-new-thing
+Your branch is up to date with 'upstream/main'.
+
+nothing to commit, working tree clean
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git log --oneline -5
+e348d02 (HEAD -> feature/my-new-thing, upstream/main, upstream/HEAD, main) Initial commit: create main repo
+c2033ea Add global config (simulated team commit)
+804ef93 Merge feature/update-readme-v2: combine v1 and v2 titles
+f59bd2c (feature/update-readme-v2) Update README title to v2
+7a003cb (feature/update-readme-v1) Update README title to v1
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git push --force-with-lease origin feature/my-new-thing
+Enumerating objects: 26, done.
+Counting objects: 100% (26/26), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (22/22), done.
+Writing objects: 100% (26/26), 2.65 KiB | 387.00 KiB/s, done.
+Total 26 (delta 8), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (8/8), done.
+To https://github.com/ZhexuanWang/task-08-fork
+ * [new branch]      feature/my-new-thing -> feature/my-new-thing
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git fetch upstream
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git checkout main
+Switched to branch 'main'
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git merge upstream/main
+Already up to date.
+PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git push origin main
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'main' on GitHub by visiting:
+remote:      https://github.com/ZhexuanWang/task-08-fork/pull/new/main
+remote:
+To https://github.com/ZhexuanWang/task-08-fork
+ * [new branch]      main -> main
+
+ PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git checkout feature/my-new-thing
+ Switched to branch 'feature/my-new-thing'
+ Your branch is up to date with 'upstream/main'.
+ PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> echo "Add user validation" > validation.js
+ PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git add validation.js
+ PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git commit -m "feat: add input validation for new feature"
+ [feature/my-new-thing 47f3afd] feat: add input validation for new feature
+  1 file changed, 0 insertions(+), 0 deletions(-)
+  create mode 100644 validation.js
+ PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> echo "Fix validation edge case" >> validation.js
+ PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git commit -m "fix: handle empty input in validator"
+ [feature/my-new-thing f4726e0] fix: handle empty input in validator
+  1 file changed, 0 insertions(+), 0 deletions(-)
+ PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git rebase -i upstream/main
+ hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/wangergou/Desktop/Gomel/nodejs/node.js-pre-training-course/Docker-Git/my-first-repo/.git/rebase-merge/git-rebase-todo to DOS format...
+ dos2unix: converting file C:/Users/wangergou/Desktop/Gomel/nodejs/node.js-pre-training-course/Docker-Git/my-first-repo/.git/rebase-merge/git-rebase-todo to Unix format...
+ Successfully rebased and updated refs/heads/feature/my-new-thing.
+ PS C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\my-first-repo> git push --force-with-lease origin feature/my-new-thing
+ Enumerating objects: 4, done.
+ Counting objects: 100% (4/4), done.
+ Delta compression using up to 8 threads
+ Compressing objects: 100% (3/3), done.
+ Writing objects: 100% (3/3), 364 bytes | 364.00 KiB/s, done.
+ Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+ remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+ To https://github.com/ZhexuanWang/task-08-fork
+    e348d02..d974d0b  feature/my-new-thing -> feature/my-new-thing

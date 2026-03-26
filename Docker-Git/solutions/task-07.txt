@@ -1,0 +1,413 @@
+docker-compose up -d
+docker-compose ps
+docker-compose logs api
+docker-compose down
+docker inspect postgres_db | grep IPAddress
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\task7>docker-compose up -d
+time="2026-03-25T20:24:35+03:00" level=warning msg="C:\\Users\\wangergou\\Desktop\\Gomel\\nodejs\\node.js-pre-training-course\\Docker-Git\\task7\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] up 5/5
+ ✔ Network task7_app-network  Created                                                                                                                        0.5s
+ ✔ Volume task7_postgres_data Created                                                                                                                        0.1s
+ ✔ Container postgres_db      Started                                                                                                                        3.1s
+ ✔ Container node_api         Started                                                                                                                        2.9s
+ ✔ Container pgadmin          Started                                                                                                                        2.9s
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\task7>docker-compose logs
+time="2026-03-25T20:35:57+03:00" level=warning msg="C:\\Users\\wangergou\\Desktop\\
+Gomel\\nodejs\\node.js-pre-training-course\\Docker-Git\\task7\\docker-compose.yml:
+the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+node_api  | Server running on port 3000
+postgres_db  | The files belonging to this database system will be owned by user "postgres".
+postgres_db  | This user must also own the server process.
+pgadmin      | email config is {'CHECK_EMAIL_DELIVERABILITY': False, 'ALLOW_SPECIAL_EMAIL_DOMAINS': [], 'GLOBALLY_DELIVERABLE': True}
+pgadmin      | /venv/lib/python3.14/site-packages/sshtunnel.py:1040: SyntaxWarning: 'return' in a 'finally' block
+pgadmin      |   return (ssh_host,
+pgadmin      | NOTE: Configuring authentication for SERVER mode.
+pgadmin      |
+pgadmin      | pgAdmin 4 - Application Initialisation
+pgadmin      | ======================================
+pgadmin      |
+pgadmin      | postfix/postlog: starting the Postfix mail system
+pgadmin      | [2026-03-25 17:25:54 +0000] [1] [INFO] Starting gunicorn 23.0.0
+pgadmin      | [2026-03-25 17:25:54 +0000] [1] [INFO] Listening at: http://[::]:80 (1)
+pgadmin      | [2026-03-25 17:25:54 +0000] [1] [INFO] Using worker: gthread
+pgadmin      | [2026-03-25 17:25:54 +0000] [123] [INFO] Booting worker with pid: 123
+pgadmin      | /venv/lib/python3.14/site-packages/sshtunnel.py:1040: SyntaxWarning: 'return' in a 'finally' block
+pgadmin      |   return (ssh_host,
+postgres_db  |
+postgres_db  | The database cluster will be initialized with locale "en_US.utf8".
+postgres_db  | The default database encoding has accordingly been set to "UTF8".
+postgres_db  | The default text search configuration will be set to "english".
+postgres_db  |
+postgres_db  | Data page checksums are disabled.
+postgres_db  |
+postgres_db  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres_db  | creating subdirectories ... ok
+postgres_db  | selecting dynamic shared memory implementation ... posix
+postgres_db  | selecting default max_connections ... 100
+postgres_db  | selecting default shared_buffers ... 128MB
+postgres_db  | selecting default time zone ... Etc/UTC
+postgres_db  | creating configuration files ... ok
+postgres_db  | running bootstrap script ... ok
+postgres_db  | performing post-bootstrap initialization ... ok
+postgres_db  | syncing data to disk ... ok
+postgres_db  |
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:04 +0000] "GET / HTTP/1.1"
+302 213 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:04 +0000] "GET /login?next=
+/ HTTP/1.1" 200 2494 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:04 +0000] "GET /static/vend
+or/require/require.min.js?ver=91300 HTTP/1.1" 200 7187 "http://localhost:8080/login
+?next=/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:04 +0000] "GET /static/js/g
+enerated/style.css?ver=91300 HTTP/1.1" 200 92480 "http://localhost:8080/login?next=
+/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:04 +0000] "GET /static/js/g
+enerated/pgadmin_commons.js?ver=91300 HTTP/1.1" 200 6003 "http://localhost:8080/log
+in?next=/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:04 +0000] "GET /static/js/g
+enerated/vendor.react.js?ver=91300 HTTP/1.1" 200 153107 "http://localhost:8080/logi
+n?next=/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:04 +0000] "GET /static/js/g
+enerated/vendor.sqleditor.js?ver=91300 HTTP/1.1" 200 173065 "http://localhost:8080/
+login?next=/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:04 +0000] "GET /static/js/g
+enerated/vendor.main.js?ver=91300 HTTP/1.1" 200 319208 "http://localhost:8080/login
+?next=/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:04 +0000] "GET /static/js/g
+enerated/vendor.others.js?ver=91300 HTTP/1.1" 200 1839950 "http://localhost:8080/lo
+gin?next=/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:05 +0000] "GET /static/js/g
+enerated/security.pages.js?ver=91300 HTTP/1.1" 200 130297 "http://localhost:8080/lo
+gin?next=/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:05 +0000] "GET /browser/js/
+endpoints.js?ver=91300 HTTP/1.1" 200 17243 "http://localhost:8080/login?next=/" "Mo
+zilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:05 +0000] "GET /tools/trans
+lations.js?ver=91300 HTTP/1.1" 200 321 "http://localhost:8080/login?next=/" "Mozill
+a/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:05 +0000] "GET /static/js/g
+enerated/fonts/Roboto-Regular..ttf HTTP/1.1" 200 0 "http://localhost:8080/static/js
+/generated/style.css?ver=91300" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:06 +0000] "GET /favicon.ico
+?ver=91300 HTTP/1.1" 302 245 "http://localhost:8080/login?next=/" "Mozilla/5.0 (Win
+dows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:06 +0000] "GET /static/favi
+con.ico?ver=91300 HTTP/1.1" 200 0 "http://localhost:8080/login?next=/" "Mozilla/5.0
+ (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:35 +0000] "POST /authentica
+te/login HTTP/1.1" 302 205 "http://localhost:8080/login?next=/" "Mozilla/5.0 (Windo
+ws NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:35 +0000] "GET /browser/ HT
+TP/1.1" 200 2933 "http://localhost:8080/login?next=/" "Mozilla/5.0 (Windows NT 10.0
+; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:35 +0000] "GET /browser/bro
+wser.css?ver=91300 HTTP/1.1" 200 4178 "http://localhost:8080/browser/" "Mozilla/5.0
+ (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:35 +0000] "GET /static/js/g
+enerated/browser_nodes.js?ver=91300 HTTP/1.1" 200 26790 "http://localhost:8080/brow
+ser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+postgres_db  |
+postgres_db  | Success. You can now start the database server using:
+postgres_db  |
+postgres_db  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres_db  |
+postgres_db  | initdb: warning: enabling "trust" authentication for local connections
+postgres_db  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres_db  | waiting for server to start....2026-03-25 17:24:43.724 UTC [48] LOG:
+  starting PostgreSQL 16.13 (Debian 16.13-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres_db  | 2026-03-25 17:24:43.732 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres_db  | 2026-03-25 17:24:43.753 UTC [51] LOG:  database system was shut down at 2026-03-25 17:24:42 UTC
+postgres_db  | 2026-03-25 17:24:43.786 UTC [48] LOG:  database system is ready to accept connections
+postgres_db  |  done
+postgres_db  | server started
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:36 +0000] "GET /static/js/g
+enerated/app.bundle.js?ver=91300 HTTP/1.1" 200 575619 "http://localhost:8080/browse
+r/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:36 +0000] "GET /browser/js/
+messages.js?ver=91300 HTTP/1.1" 200 883 "http://localhost:8080/browser/" "Mozilla/5
+.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:36 +0000] "GET /browser/js/
+endpoints.js?ver=91300 HTTP/1.1" 200 4089 "http://localhost:8080/browser/" "Mozilla
+/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:36 +0000] "GET /tools/trans
+lations.js?ver=91300 HTTP/1.1" 200 321 "http://localhost:8080/browser/" "Mozilla/5.
+0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:36 +0000] "GET /static/js/g
+ettext.js?ver=91300 HTTP/1.1" 200 577 "http://localhost:8080/browser/" "Mozilla/5.0
+ (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:36 +0000] "GET /browser/ser
+ver/supported_servers.js?ver=91300 HTTP/1.1" 200 291 "http://localhost:8080/browser
+/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:36 +0000] "GET /static/js/p
+gadmin.js?ver=91300 HTTP/1.1" 200 1209 "http://localhost:8080/browser/" "Mozilla/5.
+0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:36 +0000] "GET /browser/js/
+utils.js?ver=91300 HTTP/1.1" 200 2027 "http://localhost:8080/browser/" "Mozilla/5.0
+ (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:36 +0000] "GET /user_manage
+ment/current_user.js?ver=91300 HTTP/1.1" 200 479 "http://localhost:8080/browser/" "
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:37 +0000] "GET /browser/che
+ck_corrupted_db_file HTTP/1.1" 200 61 "http://localhost:8080/browser/" "Mozilla/5.0
+ (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+postgres_db  | CREATE DATABASE
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:37 +0000] "GET /misc/bgproc
+ess/ HTTP/1.1" 200 2 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0
+; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:38 +0000] "GET /llm/status
+HTTP/1.1" 200 127 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:39 +0000] "GET /preferences
+/get_all HTTP/1.1" 200 12786 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows
+ NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:39 +0000] "GET /settings/ge
+t_tree_state/ HTTP/1.1" 200 0 "http://localhost:8080/browser/" "Mozilla/5.0 (Window
+s NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:40 +0000] "GET /browser/nod
+es/ HTTP/1.1" 200 273 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.
+0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:40 +0000] "GET /sqleditor/n
+ew_connection_dialog HTTP/1.1" 200 130 "http://localhost:8080/browser/" "Mozilla/5.
+0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:40 +0000] "GET /sqleditor/n
+ew_connection_dialog HTTP/1.1" 200 130 "http://localhost:8080/browser/" "Mozilla/5.
+0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:40 +0000] "GET /static/js/g
+enerated/fonts/fa-solid-900..woff2 HTTP/1.1" 200 0 "http://localhost:8080/static/js
+/generated/style.css?ver=91300" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+postgres_db  |
+postgres_db  |
+postgres_db  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+postgres_db  |
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:40 +0000] "GET /sqleditor/n
+ew_connection_dialog HTTP/1.1" 200 130 "http://localhost:8080/browser/" "Mozilla/5.
+0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:40 +0000] "GET /settings/ob
+ject_explorer_filter HTTP/1.1" 200 95 "http://localhost:8080/browser/" "Mozilla/5.0
+ (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:40 +0000] "POST /browser/ma
+ster_password HTTP/1.1" 200 166 "http://localhost:8080/browser/" "Mozilla/5.0 (Wind
+ows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:40 +0000] "GET /sqleditor/n
+ew_connection_dialog HTTP/1.1" 200 130 "http://localhost:8080/browser/" "Mozilla/5.
+0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+postgres_db  | waiting for server to shut down...2026-03-25 17:24:44.421 UTC [48] LOG:  received fast shutdown request
+postgres_db  | .2026-03-25 17:24:44.432 UTC [48] LOG:  aborting any active transactions
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:40 +0000] "GET /browser/ser
+ver_group/static/img/server_group.svg?ver=91300 HTTP/1.1" 200 0 "http://localhost:8
+080/browser/browser.css?ver=91300" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:40 +0000] "GET /static/js/g
+enerated/fonts/fa-regular-400..woff2 HTTP/1.1" 200 0 "http://localhost:8080/static/
+js/generated/style.css?ver=91300" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:27:41 +0000] "GET /misc/upgrad
+e_check?trigger_update_check=false HTTP/1.1" 200 77 "http://localhost:8080/browser/
+" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:28:09 +0000] "POST /settings/s
+ave_tree_state/ HTTP/1.1" 200 63 "http://localhost:8080/browser/" "Mozilla/5.0 (Win
+dows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:28:09 +0000] "GET /settings/ge
+t_tree_state/ HTTP/1.1" 200 2 "http://localhost:8080/browser/" "Mozilla/5.0 (Window
+s NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:28:20 +0000] "GET /browser/ser
+ver_group/children/1 HTTP/1.1" 200 61 "http://localhost:8080/browser/" "Mozilla/5.0
+ (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:29:03 +0000] "POST /settings/s
+tore HTTP/1.1" 200 77 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.
+0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:29:03 +0000] "GET /browser/ser
+ver_group/nodes/ HTTP/1.1" 200 242 "http://localhost:8080/browser/" "Mozilla/5.0 (W
+indows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:29:03 +0000] "GET /browser/ser
+ver/static/img/server.svg?ver=91300 HTTP/1.1" 200 0 "http://localhost:8080/browser/
+browser.css?ver=91300" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:32:37 +0000] "POST /misc/clean
+up HTTP/1.1" 200 0 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:01 +0000] "POST /browser/se
+rver/obj/1/ HTTP/1.1" 200 283 "http://localhost:8080/browser/" "Mozilla/5.0 (Window
+s NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:02 +0000] "POST /settings/s
+tore HTTP/1.1" 200 77 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.
+0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:02 +0000] "GET /browser/ser
+ver_group/children/1 HTTP/1.1" 200 378 "http://localhost:8080/browser/" "Mozilla/5.
+0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:02 +0000] "GET /browser/ser
+ver_group/nodes/ HTTP/1.1" 200 242 "http://localhost:8080/browser/" "Mozilla/5.0 (W
+indows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:02 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names= HTTP/1.1" 200 2 "http://localhost:8080/browser/" "Moz
+illa/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:02 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names=session_stats,tps_stats,ti_stats,to_stats,bio_stats HT
+TP/1.1" 200 252 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:02 +0000] "GET /browser/ser
+ver/connect/1/1 HTTP/1.1" 200 312 "http://localhost:8080/browser/" "Mozilla/5.0 (Wi
+ndows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:02 +0000] "GET /browser/ser
+ver/static/img/pg.svg?ver=91300 HTTP/1.1" 200 0 "http://localhost:8080/browser/brow
+ser.css?ver=91300" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:07 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names=session_stats,tps_stats,ti_stats,to_stats,bio_stats HT
+TP/1.1" 200 253 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:12 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names=session_stats,tps_stats,ti_stats,to_stats,bio_stats HT
+TP/1.1" 200 253 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:17 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names=session_stats,tps_stats,ti_stats,to_stats,bio_stats HT
+TP/1.1" 200 253 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:22 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names=session_stats,tps_stats,ti_stats,to_stats,bio_stats HT
+TP/1.1" 200 253 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:27 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names=session_stats,tps_stats,ti_stats,to_stats,bio_stats HT
+TP/1.1" 200 253 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:32 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names=session_stats,tps_stats,ti_stats,to_stats,bio_stats HT
+TP/1.1" 200 253 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+postgres_db  | 2026-03-25 17:24:44.436 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:32 +0000] "POST /misc/heart
+beat/log HTTP/1.1" 200 91 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT
+ 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:37 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names=session_stats,tps_stats,ti_stats,to_stats,bio_stats HT
+TP/1.1" 200 253 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:42 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names=session_stats,tps_stats,ti_stats,to_stats,bio_stats HT
+TP/1.1" 200 253 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:47 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names=session_stats,tps_stats,ti_stats,to_stats,bio_stats HT
+TP/1.1" 200 253 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+postgres_db  | 2026-03-25 17:24:44.438 UTC [49] LOG:  shutting down
+postgres_db  | 2026-03-25 17:24:44.442 UTC [49] LOG:  checkpoint starting: shutdown immediate
+pgadmin      | ::ffff:172.18.0.1 - - [25/Mar/2026:17:35:52 +0000] "GET /dashboard/d
+ashboard_stats/1?chart_names=session_stats,tps_stats,ti_stats,to_stats,bio_stats HT
+TP/1.1" 200 253 "http://localhost:8080/browser/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+postgres_db  | 2026-03-25 17:24:44.704 UTC [49] LOG:  checkpoint complete: wrote 92
+6 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.091 s, sync=0
+.158 s, total=0.267 s; sync files=301, longest=0.012 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0E0, redo lsn=0/191F0E0
+postgres_db  | 2026-03-25 17:24:44.732 UTC [48] LOG:  database system is shut down
+postgres_db  |  done
+postgres_db  | server stopped
+postgres_db  |
+postgres_db  | PostgreSQL init process complete; ready for start up.
+postgres_db  |
+postgres_db  | 2026-03-25 17:24:44.879 UTC [1] LOG:  starting PostgreSQL 16.13 (Deb
+ian 16.13-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres_db  | 2026-03-25 17:24:44.882 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres_db  | 2026-03-25 17:24:44.882 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres_db  | 2026-03-25 17:24:44.891 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres_db  | 2026-03-25 17:24:44.907 UTC [64] LOG:  database system was shut down at 2026-03-25 17:24:44 UTC
+postgres_db  | 2026-03-25 17:24:44.932 UTC [1] LOG:  database system is ready to accept connections
+postgres_db  | 2026-03-25 17:29:44.958 UTC [62] LOG:  checkpoint starting: time
+postgres_db  | 2026-03-25 17:29:49.284 UTC [62] LOG:  checkpoint complete: wrote 45
+ buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.286 s, sync=0.
+010 s, total=4.329 s; sync files=12, longest=0.004 s, average=0.001 s; distance=260 kB, estimate=260 kB; lsn=0/19604E0, redo lsn=0/19604A8
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\task7>docker-compose logs api
+time="2026-03-25T20:36:32+03:00" level=warning msg="C:\\Users\\wangergou\\Desktop\\
+Gomel\\nodejs\\node.js-pre-training-course\\Docker-Git\\task7\\docker-compose.yml:
+the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+node_api  | Server running on port 3000
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\task7>docker-compose logs postgres
+time="2026-03-25T20:36:39+03:00" level=warning msg="C:\\Users\\wangergou\\Desktop\\
+Gomel\\nodejs\\node.js-pre-training-course\\Docker-Git\\task7\\docker-compose.yml:
+the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+postgres_db  | The files belonging to this database system will be owned by user "postgres".
+postgres_db  | This user must also own the server process.
+postgres_db  |
+postgres_db  | The database cluster will be initialized with locale "en_US.utf8".
+postgres_db  | The default database encoding has accordingly been set to "UTF8".
+postgres_db  | The default text search configuration will be set to "english".
+postgres_db  |
+postgres_db  | Data page checksums are disabled.
+postgres_db  |
+postgres_db  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres_db  | creating subdirectories ... ok
+postgres_db  | selecting dynamic shared memory implementation ... posix
+postgres_db  | selecting default max_connections ... 100
+postgres_db  | selecting default shared_buffers ... 128MB
+postgres_db  | selecting default time zone ... Etc/UTC
+postgres_db  | creating configuration files ... ok
+postgres_db  | running bootstrap script ... ok
+postgres_db  | performing post-bootstrap initialization ... ok
+postgres_db  | syncing data to disk ... ok
+postgres_db  |
+postgres_db  |
+postgres_db  | Success. You can now start the database server using:
+postgres_db  |
+postgres_db  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres_db  |
+postgres_db  | initdb: warning: enabling "trust" authentication for local connections
+postgres_db  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres_db  | waiting for server to start....2026-03-25 17:24:43.724 UTC [48] LOG:
+  starting PostgreSQL 16.13 (Debian 16.13-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres_db  | 2026-03-25 17:24:43.732 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres_db  | 2026-03-25 17:24:43.753 UTC [51] LOG:  database system was shut down at 2026-03-25 17:24:42 UTC
+postgres_db  | 2026-03-25 17:24:43.786 UTC [48] LOG:  database system is ready to accept connections
+postgres_db  |  done
+postgres_db  | server started
+postgres_db  | CREATE DATABASE
+postgres_db  |
+postgres_db  |
+postgres_db  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+postgres_db  |
+postgres_db  | waiting for server to shut down...2026-03-25 17:24:44.421 UTC [48] LOG:  received fast shutdown request
+postgres_db  | .2026-03-25 17:24:44.432 UTC [48] LOG:  aborting any active transactions
+postgres_db  | 2026-03-25 17:24:44.436 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+postgres_db  | 2026-03-25 17:24:44.438 UTC [49] LOG:  shutting down
+postgres_db  | 2026-03-25 17:24:44.442 UTC [49] LOG:  checkpoint starting: shutdown immediate
+postgres_db  | 2026-03-25 17:24:44.704 UTC [49] LOG:  checkpoint complete: wrote 92
+6 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.091 s, sync=0
+.158 s, total=0.267 s; sync files=301, longest=0.012 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0E0, redo lsn=0/191F0E0
+postgres_db  | 2026-03-25 17:24:44.732 UTC [48] LOG:  database system is shut down
+postgres_db  |  done
+postgres_db  | server stopped
+postgres_db  |
+postgres_db  | PostgreSQL init process complete; ready for start up.
+postgres_db  |
+postgres_db  | 2026-03-25 17:24:44.879 UTC [1] LOG:  starting PostgreSQL 16.13 (Deb
+ian 16.13-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres_db  | 2026-03-25 17:24:44.882 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres_db  | 2026-03-25 17:24:44.882 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres_db  | 2026-03-25 17:24:44.891 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres_db  | 2026-03-25 17:24:44.907 UTC [64] LOG:  database system was shut down at 2026-03-25 17:24:44 UTC
+postgres_db  | 2026-03-25 17:24:44.932 UTC [1] LOG:  database system is ready to accept connections
+postgres_db  | 2026-03-25 17:29:44.958 UTC [62] LOG:  checkpoint starting: time
+postgres_db  | 2026-03-25 17:29:49.284 UTC [62] LOG:  checkpoint complete: wrote 45
+ buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.286 s, sync=0.
+010 s, total=4.329 s; sync files=12, longest=0.004 s, average=0.001 s; distance=260 kB, estimate=260 kB; lsn=0/19604E0, redo lsn=0/19604A8
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\task7>docker-compose logs -f api
+time="2026-03-25T20:36:45+03:00" level=warning msg="C:\\Users\\wangergou\\Desktop\\
+Gomel\\nodejs\\node.js-pre-training-course\\Docker-Git\\task7\\docker-compose.yml:
+the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+node_api  | Server running on port 3000
+
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\task7>docker-compose ps
+time="2026-03-25T20:36:59+03:00" level=warning msg="C:\\Users\\wangergou\\Desktop\\
+Gomel\\nodejs\\node.js-pre-training-course\\Docker-Git\\task7\\docker-compose.yml:
+the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+NAME          IMAGE            COMMAND                   SERVICE    CREATED          STATUS          PORTS
+node_api      task7-api        "docker-entrypoint.s…"   api        12 minutes ago   Up 12 minutes   0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp
+pgadmin       dpage/pgadmin4   "/entrypoint.sh"          pgadmin    12 minutes ago   Up 12 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+postgres_db   postgres:16      "docker-entrypoint.s…"   postgres   12 minutes ago   Up 12 minutes   5432/tcp
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\task7>docker-compose ps
+time="2026-03-25T20:37:08+03:00" level=warning msg="C:\\Users\\wangergou\\Desktop\\
+Gomel\\nodejs\\node.js-pre-training-course\\Docker-Git\\task7\\docker-compose.yml:
+the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+NAME          IMAGE            COMMAND                   SERVICE    CREATED          STATUS          PORTS
+node_api      task7-api        "docker-entrypoint.s…"   api        12 minutes ago   Up 12 minutes   0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp
+pgadmin       dpage/pgadmin4   "/entrypoint.sh"          pgadmin    12 minutes ago   Up 12 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+postgres_db   postgres:16      "docker-entrypoint.s…"   postgres   12 minutes ago   Up 12 minutes   5432/tcp
+
+C:\Users\wangergou\Desktop\Gomel\nodejs\node.js-pre-training-course\Docker-Git\task7>docker-compose down
+time="2026-03-25T20:38:56+03:00" level=warning msg="C:\\Users\\wangergou\\Desktop\\
+Gomel\\nodejs\\node.js-pre-training-course\\Docker-Git\\task7\\docker-compose.yml:
+the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] down 4/4
+ ✔ Container pgadmin         Removed                                           4.3s ✔ Container node_api        Removed                                           2.8s ✔ Container postgres_db     Removed                                           1.0s ✔ Network task7_app-network Removed                                           0.4s
+

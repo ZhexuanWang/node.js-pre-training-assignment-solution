@@ -1,0 +1,14 @@
+{
+  "name": "my-docker-app",
+  "version": "1.0.0",
+  "description": "First Docker container with Node.js",
+  "main": "app.js",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Wang",
+  "license": "MIT"
+}
